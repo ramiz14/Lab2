@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Lab2.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230203072442_HomeTableAdded")]
-    partial class HomeTableAdded
+    [Migration("20230204104117_AboutTableFixed")]
+    partial class AboutTableFixed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,29 +31,17 @@ namespace Lab2.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("CourseCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CourseTitle")
+                    b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EventCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("EventTitle")
+                    b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("StudentCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("StudentTitle")
+                    b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Trainers")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -180,6 +168,10 @@ namespace Lab2.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title2")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

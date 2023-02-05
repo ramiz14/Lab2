@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Lab2.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230203063341_createdImagesandFeaturesTable")]
-    partial class createdImagesandFeaturesTable
+    [Migration("20230204102504_Title2ColumnAddedToTheHomeTable")]
+    partial class Title2ColumnAddedToTheHomeTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -165,6 +165,31 @@ namespace Lab2.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("features");
+                });
+
+            modelBuilder.Entity("Lab2.Models.Home", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("homes");
                 });
 
             modelBuilder.Entity("Lab2.Models.Images", b =>

@@ -1,12 +1,189 @@
-﻿
+﻿@model HomeIndexViewModel
 @{
     ViewData["Title"] = "Index";
 }
 
 <section id="hero" class="d-flex justify-content-center align-items-center">
     <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-        <h1>Learning Today,<br>Leading Tomorrow</h1>
-        <h2>We are team of talented designers making websites with Bootstrap</h2>
+        <h1>@Model.home[0].Title<br>@Model.home[0].Title2</h1>
+        <h2>@Model.home[0].Description</h2>
         <a href="courses.html" class="btn-get-started">Get Started</a>
     </div>
 </section><!-- End Hero -->
+<main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+                <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+                    <img src="~/assets/img/" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+                    <h3>@Model.about[0].Title</h3>
+                    <p class="fst-italic">
+                        @Model.about[0].Description
+                    </p>
+                    <ul>
+                        <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                        <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                        <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+                    </ul>
+                    <p>
+                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End About Section -->
+    <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts section-bg">
+        <div class="container">
+
+            <div class="row counters">
+
+                <div class="col-lg-3 col-6 text-center">
+                    <span data-purecounter-start="0" data-purecounter-end="@Model.counts[0].StudentCount" data-purecounter-duration="1" class="purecounter"></span>
+                    <p>@Model.counts[0].StudentTitle</p>
+                </div>
+
+                <div class="col-lg-3 col-6 text-center">
+                    <span data-purecounter-start="0" data-purecounter-end="@Model.counts[0].CourseCount" data-purecounter-duration="1" class="purecounter"></span>
+                    <p>@Model.counts[0].CourseTitle</p>
+                </div>
+
+                <div class="col-lg-3 col-6 text-center">
+                    <span data-purecounter-start="0" data-purecounter-end="@Model.counts[0].EventCount" data-purecounter-duration="1" class="purecounter"></span>
+                    <p>@Model.counts[0].EventTitle</p>
+                </div>
+
+                <div class="col-lg-3 col-6 text-center">
+                    <span data-purecounter-start="0" data-purecounter-end="@Model.counts[0].Trainers" data-purecounter-duration="1" class="purecounter"></span>
+                    <p>@Model.counts[0].TrainerTitle</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Counts Section -->
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+                <div class="col-lg-4 d-flex align-items-stretch">
+                    <div class="content">
+                        <h3>@Model.whyUs[0].Title</h3>
+                        <p>
+                            @Model.whyUs[0].Description
+                        </p>
+                        <div class="text-center">
+                            <a href="about.html" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="icon-boxes d-flex flex-column justify-content-center">
+                        <div class="row">
+                            @foreach (WhyUsBoxes box in Model.whyUsBoxes)
+                            {
+                                <div class="col-xl-4 d-flex align-items-stretch">
+                                    <div class="icon-box mt-4 mt-xl-0">
+                                        <i class="bx bx-receipt"></i>
+                                        <h4>@box.BoxTitle</h4>
+                                        <p>@box.BoxDescription</p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div><!-- End .content-->
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Why Us Section -->
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row" data-aos="zoom-in" data-aos-delay="100">
+                <div class="col-lg-3 col-md-4">
+                    <div class="icon-box">
+                        <i class="ri-store-line" style="color: #ffbb2c;"></i>
+                        <h3><a href="">@Model.features[0].Name</a></h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+                    <div class="icon-box">
+                        <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
+                        <h3><a href="">@Model.features[1].Name</a></h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+                    <div class="icon-box">
+                        <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
+                        <h3><a href="">@Model.features[2].Name</a></h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
+                    <div class="icon-box">
+                        <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
+                        <h3><a href="">@Model.features[3].Name</a></h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 mt-4">
+                    <div class="icon-box">
+                        <i class="ri-database-2-line" style="color: #47aeff;"></i>
+                        <h3><a href="">@Model.features[4].Name</a></h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 mt-4">
+                    <div class="icon-box">
+                        <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
+                        <h3><a href="">@Model.features[5].Name</a></h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 mt-4">
+                    <div class="icon-box">
+                        <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
+                        <h3><a href="">@Model.features[6].Name</a></h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 mt-4">
+                    <div class="icon-box">
+                        <i class="ri-price-tag-2-line" style="color: #4233ff;"></i>
+                        <h3><a href="">@Model.features[7].Name</a></h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 mt-4">
+                    <div class="icon-box">
+                        <i class="ri-anchor-line" style="color: #b2904f;"></i>
+                        <h3><a href="">@Model.features[8].Name</a></h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 mt-4">
+                    <div class="icon-box">
+                        <i class="ri-disc-line" style="color: #b20969;"></i>
+                        <h3><a href="">@Model.features[9].Name</a></h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 mt-4">
+                    <div class="icon-box">
+                        <i class="ri-base-station-line" style="color: #ff5828;"></i>
+                        <h3><a href="">@Model.features[10].Name</a></h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 mt-4">
+                    <div class="icon-box">
+                        <i class="ri-fingerprint-line" style="color: #29cc61;"></i>
+                        <h3><a href="">@Model.features[11].Name</a></h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Features Section -->
+</main><!-- End #main -->

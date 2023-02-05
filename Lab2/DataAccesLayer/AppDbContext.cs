@@ -18,5 +18,9 @@ namespace Lab2.DataAccesLayer
         public DbSet<Images> images { get; set; }
         public DbSet<Features> features { get; set; }
         public DbSet<Home> homes { get; set; }
+        public DbSet<Counts> counts { get; set; }
+        public DbSet<WhyUs> whyUs { get; set; }
+        public DbSet<WhyUsBoxes> whyUsBoxes { get; set; }
+        public DbSet<ModelImages> modelImages { get; set; }
     }
 }

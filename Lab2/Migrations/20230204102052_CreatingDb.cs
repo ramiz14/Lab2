@@ -4,7 +4,7 @@
 
 namespace Lab2.Migrations
 {
-    public partial class createdImagesandFeaturesTable : Migration
+    public partial class CreatingDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -91,6 +91,20 @@ namespace Lab2.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "homes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_homes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "images",
                 columns: table => new
                 {
@@ -152,6 +166,9 @@ namespace Lab2.Migrations
 
             migrationBuilder.DropTable(
                 name: "features");
+
+            migrationBuilder.DropTable(
+                name: "homes");
 
             migrationBuilder.DropTable(
                 name: "images");
